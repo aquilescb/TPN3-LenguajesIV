@@ -9,7 +9,8 @@
       "lint": "eslint .",
       "preview": "vite preview",
       "predeploy": "npm run build",
-      "deploy": "gh-pages -d dist"
+      "postbuild": "powershell -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html\"",
+      "deploy": "npm run build && gh-pages -d dist"
    },
    "dependencies": {
       "@emailjs/browser": "^4.4.1",
