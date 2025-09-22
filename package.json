@@ -10,7 +10,8 @@
       "preview": "vite preview",
       "predeploy": "npm run build",
       "postbuild": "node -e \"const fs=require('fs');fs.copyFileSync('dist/index.html','dist/404.html');\"",
-      "deploy": "npm run build && gh-pages -d dist",
+      "deploy": "npm run clean:gh && npm run build && gh-pages -d dist -b gh-pages",
+      "clean:gh": "gh-pages-clean",
       "predeploy-clean": "gh-pages-clean"
    },
    "dependencies": {
